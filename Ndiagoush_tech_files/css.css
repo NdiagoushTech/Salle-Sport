@@ -1,0 +1,68 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:0px;
+    margin:0px;
+}
+header{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color:aqua;
+    font-weight:bold;
+}
+nav ul{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    gap:20px;
+    padding:10px;
+    margin:20px;
+    background-color: rgba(177,255,30,1);
+    color: #c5c5c5;
+}
+.esp img{
+    max-width:600px;
+    margin-top:20px;
+    width:100%;
+    height:auto;
+    object-fit: cover;
+}
+.esp{
+    color:aqua;
+    padding:10px;
+    margin:20px;
+    border-radius:5px;
+    border:30px;
+    background-color: brown;
+    font-weight: bold;
+}
+footer{
+    text-align: center;
+    padding: 8px;
+    margin:15px;
+    border:20px;
+    border-radius: 5px double rgba(177,255,255);
+}
+.parcours h1{
+    text-align: center;
+}
+.parcours {
+    position: left 
+}
+.left{
+    float:left;
+    width:30%;
+}
+.sec{
+    padding:8px;
+    margin:15px;
+    border:20px;
+    border-radius: 5px #ccc;
+    background-color: brown;
+    font-weight: bold;
+    color: aqua;
+}
+nav  li:hover{
+    background-color: chocolate;
+    box-shadow: 2px 10px 5px wheat;
+}
