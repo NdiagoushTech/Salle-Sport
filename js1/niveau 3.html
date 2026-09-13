@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Testeur de couleur</h1>
+        </header>
+        <main>
+            Choisir une couleur de fond:<input type="color" value="#ffffff" id="couleur">
+            choisir une couleur du texte:<input type="color" value="#000000" id="couleur1">
+            <p>voici notre paragraphe pour la couleur du texte.</p>
+            <p id="codehex"></p>
+            <input type="button" value="renitialiser" id="renitialiser">
+            <script>
+                const couleur=document.getElementById("couleur");
+                couleur.addEventListener("input",function(){
+                    const codehex=document.getElementById("codehex");
+                    document.body.style.backgroundColor=couleur.value;
+                    codehex.textContent="Le code hexadecimal est: "+couleur.value;
+                });
+                const couleur1=document.getElementById("couleur1");
+                couleur1.addEventListener("input",function(){
+                    document.body.style.color=couleur1.value;
+                });
+                const reset=document.getElementById("renitialiser");
+                reset.addEventListener("click",function(){
+                    document.body.style.backgroundColor="#ffffff";
+                    document.body.style.color="#000000";
+                    couleur.value="#ffffff";
+                    couleur1.value="#000000";
+                    const codehex=document.getElementById("codehex");
+                    codehex.textContent="";
+                });
+            </script>
+        </main>
+    </body>
+</html>

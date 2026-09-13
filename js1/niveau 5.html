@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ndiagoush_tech</title>
+        <link rel="stylesheet" href="css.css">
+    </head>
+    <body>
+        <header>
+            <h1>Calculatrice simple</h1>
+        </header>
+        <main>
+            <input type="text" size="4" id="saisie"><br>
+            <input type="button" value="0" class="chiffre">
+            <input type="button" value="1" class="chiffre">
+            <input type="button" value="2" class="chiffre"><br>
+            <input type="button" value="3" class="chiffre">
+            <input type="button" value="4" class="chiffre">
+            <input type="button" value="5" class="chiffre"><br>
+            <input type="button" value="6" class="chiffre">
+            <input type="button" value="7" class="chiffre">
+            <input type="button" value="8" class="chiffre"><br>
+            <input type="button" value="9" class="chiffre">
+            <input type="button" value="*" class="operateur">
+            <input type="button" value="+" class="operateur"><br>
+            <input type="button" value="-" class="operateur">
+            <input type="button" value="/" class="operateur">
+            <input type="button" value="C" id="C">
+            <input type="button" value="=" id="egale">
+            <script>
+                const saisie=document.getElementById("saisie");
+                const egale=document.getElementById("egale");
+                const chiffres = document.querySelectorAll(".chiffre");
+                chiffres.forEach(function(bouton) {
+                bouton.addEventListener("click", function() {
+                    saisie.value+=bouton.value;
+                           });
+                });
+                const C=document.getElementById("C");
+                C.addEventListener("click",function(){
+                    saisie.value="";
+                });
+                const op=document.querySelectorAll(".operateur");
+                op.forEach(function(operation){
+                    operation.addEventListener("click",function(){
+                        saisie.value+=operation.value;
+                    });
+                });
+              egale.addEventListener("click",function(){
+                    saisie.value=eval(saisie.value);
+            }); 
+
+            </script>
+        </main>
+    </body>
+</html>

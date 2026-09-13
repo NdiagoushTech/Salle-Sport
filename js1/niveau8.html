@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Pierre-Feuille-Ciseaux</h1>
+        </header>
+        <main id="main">
+
+        </main>
+        <script>
+            const inputPierre=document.createElement("input");
+            const inputFeuille=document.createElement("input");
+            const inputCiseaux=document.createElement("input");
+            const main=document.getElementById("main");
+            main.appendChild(inputPierre);
+
+            inputPierre.setAttribute("type","button");
+            inputPierre.setAttribute("value","Pierre");
+            inputCiseaux.setAttribute("type","button");
+            inputCiseaux.setAttribute("value","Ciseaux");
+            inputFeuille.setAttribute("type","button");
+            inputFeuille.setAttribute("value","Feuille");
+
+            const enfant=[inputPierre,inputFeuille,inputCiseaux];
+               let score=0;
+                let scoreO=0;
+                const pS=document.createElement("p");
+                main.appendChild(pS);
+                const p=document.createElement("p");
+                    main.appendChild(p);
+                    p.textContent="";
+            enfant.forEach(function(child){
+                main.appendChild(child);
+                child.addEventListener("click",function(){
+                const index=Math.floor(Math.random()*3);
+                const choix=enfant[index];
+                if(child.value==choix.value){
+                    p.textContent=child.value+" VS "+choix.value+"Egalite!";
+                }
+                else if(child.value=="Pierre" && choix.value=="Ciseaux"){
+                    p.textContent=child.value+" VS "+choix.value+"Gagner!";
+                    score++;
+                }
+                else if(child.value=="Ciseaux" && choix.value=="Pierre"){
+                    p.textContent=child.value+" VS "+choix.value+"perdu";
+                    scoreO++;
+                }
+                 else if(child.value=="Feuille" && choix.value=="Pierre"){
+                    p.textContent=child.value+" VS "+choix.value+"Gagner!";
+                    score++;
+                }
+                else if(child.value=="Pierre" && choix.value=="Feuille"){
+                    p.textContent=child.value+" VS "+choix.value+"perdu";
+                    scoreO++;
+                }
+                else if(child.value=="Feuille" && choix.value=="Ciseaux"){
+                    p.textContent=child.value+" VS "+choix.value+"Perdu";
+                    scoreO++;
+                }
+                else {
+                    p.textContent=child.value+" VS "+choix.value+"Gagner!";
+                    score++;
+                }
+                 pS.textContent="Votre score est de :"+score+"Pts.Le score de l'ordinateur est de : "+scoreO+"Pts";
+            });
+        });
+               const inputScore=document.createElement("input");
+                main.appendChild(inputScore);
+                inputScore.setAttribute("type","button");
+                inputScore.setAttribute("value","Renitialiser");
+                inputScore.addEventListener("click",function(){
+                    p.textContent="";
+                    score=0;
+                    scoreO=0;
+                    pS.textContent="";
+                });
+        </script>
+     </body>
+</html>

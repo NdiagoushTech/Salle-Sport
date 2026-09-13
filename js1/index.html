@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Quiz Culture générale 🧠</h1>
+        </header>
+        <main>
+            <h2 id="h2"></h2>
+            <div id="div"></div>
+            <p id="message"></p>
+            <p id="chrono"></p>
+
+            <script>
+                let indexQuestion = 0;
+                let score = 0;
+                let tempsRestant = 10;
+                let timer; // Variable globale pour stocker l'intervalle
+
+                const questions = [
+                    {
+                        question: "Qui est le premier président du Sénégal?",
+                        Propositions: ["Ndiaga Cissé", "Abdou Diouf", "Léopold Sédar Senghor", "Lamine Guèye"],
+                        Reponse: "Léopold Sédar Senghor"
+                    },
+                    {
+                        question: "Parmi ces langages, lequel est un langage de balisage?",
+                        Propositions: ["JavaScript", "HTML", "Python", "Java"],
+                        Reponse: "HTML"
+                    },
+                    {
+                        question: "Linux est un système d'exploitation?",
+                        Propositions: ["Vrai", "Faux"],
+                        Reponse: "Faux"
+                    },
+                    {
+                        question: "Quelle est la bonne syntaxe pour déclarer une variable en JavaScript?",
+                        Propositions: ["let a;", "const a;", "variable a;", "var a"],
+                        Reponse: "let a;"
+                    },
+                    {
+                        question: "JavaScript est un langage côté serveur?",
+                        Propositions: ["Vrai", "Faux"],
+                        Reponse: "Faux"
+                    },
+                    {
+                        question: "PHP est un langage côté serveur?",
+                        Propositions: ["Vrai", "Faux"],
+                        Reponse: "Vrai"
+                    },
+                    {
+                        question: "Un objet est",
+                        Propositions: ["une entité concrète ou abstraite du monde réel ou virtuel", "est un matériel physique", "est un élément unique en informatique", "un objet est une variable qui sert uniquement à stocker des nombres et qui ne peut contenir des fonctions"],
+                        Reponse: "une entité concrète ou abstraite du monde réel ou virtuel"
+                    },
+                    {
+                        question: "Qui a remporté la coupe du monde 2010?",
+                        Propositions: ["France", "Argentine", "Espagne", "Brésil"],
+                        Reponse: "Espagne"
+                    },
+                    {
+                        question: "Python est un langage de programmation",
+                        Propositions: ["Vrai", "Faux"],
+                        Reponse: "Vrai"
+                    },
+                    {
+                        question: "On peut utiliser du Java pour du développement web côté back-end",
+                        Propositions: ["Vrai", "Faux"],
+                        Reponse: "Vrai"
+                    }
+                ];
+
+                const chrono = document.getElementById("chrono");
+                const div = document.getElementById("div");
+                const h2 = document.getElementById("h2");
+                const message = document.getElementById("message");
+
+                function afficherQuestion() {
+                    // 🛑 Arrêter tout chrono actif avant de faire quoi que ce soit
+                    clearInterval(timer);
+
+                    // 🏆 Vérification de la fin de partie
+                    if (indexQuestion >= questions.length) {
+                        h2.innerHTML = "";
+                        div.innerHTML = "";
+                        chrono.textContent = "";
+                        message.innerHTML = "Quiz Terminé ! <br>Votre score : " + score + " / " + questions.length;
+
+                        const boutonRecommencer = document.createElement("input");
+                        boutonRecommencer.setAttribute("type", "button");
+                        boutonRecommencer.setAttribute("value", "Recommencer");
+                        div.appendChild(boutonRecommencer);
+
+                        boutonRecommencer.addEventListener("click", function() {
+                            indexQuestion = 0;
+                            score = 0;
+                            afficherQuestion();
+                        });
+                        return;
+                    }
+
+                    // ⏱️ Lancement du chronomètre pour la question courante
+                    tempsRestant = 10;
+                    chrono.textContent = "Temps Restant: " + "s";
+
+                    timer = setInterval(function() {
+                        tempsRestant--;
+                               if(tempsRestant<=3){
+                                chrono.innerHTML="Temps restant: <span style='color:red;'>"+tempsRestant +"</span>"+"s";
+                               }
+                                else{
+                                    chrono.innerHTML = "Temps Restant: " + tempsRestant + "s";
+                                }
+                        if (tempsRestant <= 0) {
+                            clearInterval(timer);
+                            indexQuestion++;
+                            afficherQuestion();
+                        }
+                    }, 1000);
+
+                    // 🧹 Réinitialisation de la zone d'affichage
+                    div.innerHTML = "";
+                    message.innerHTML = "";
+
+                    h2.textContent = questions[indexQuestion].question;
+
+                    questions[indexQuestion].Propositions.forEach(function(proposition) {
+                        const bouton = document.createElement("input");
+                        bouton.setAttribute("type", "button");
+                        bouton.value = proposition;
+                        div.appendChild(bouton);
+
+                        bouton.style.display = "block";
+                        bouton.style.margin = "10px";
+
+                        bouton.addEventListener("click", function() {
+                            // Désactiver les boutons pour éviter de cliquer plusieurs fois
+                            const boutons = div.querySelectorAll("input[type='button']");
+                            boutons.forEach(b => b.disabled = true);
+
+                            // Pause du chrono pendant l'affichage du résultat
+                            clearInterval(timer);
+
+                            // Validation de la réponse
+                            if (bouton.value === questions[indexQuestion].Reponse) {
+                                bouton.style.color = "green";
+                                message.textContent = "Réponse correcte !";
+                                score++;
+                            } else {
+                                bouton.style.color = "red";
+                                message.textContent = "Réponse incorrecte !";
+                            }
+
+                            indexQuestion++;
+
+                            // Pause d'une seconde avant de passer à la suite
+                            setTimeout(function() {
+                                afficherQuestion();
+                            }, 1000);
+                        });
+                    });
+                }
+
+                // Lancement de la première question
+                afficherQuestion();
+            </script>
+        </main>
+    </body>
+</html>

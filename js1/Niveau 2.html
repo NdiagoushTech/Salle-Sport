@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Convertisseur de temperatures</h1>
+        </header>
+        <main>
+            <section>
+                entrer la temperature de depart:<input type="text" id="temp" size="3">
+                <label id="lab"></label>
+                <input type="button" value="Celsius-->Fahrenheit" id="conv1">
+                <input type="button" value="Fahrenheit-->Celsius" id="conv2">
+            </section>
+        </main>
+        <script>
+            const celsius=document.getElementById("conv1");
+            let f="";
+            let c="";
+            celsius.addEventListener("click",function(){
+                 const temp=document.getElementById("temp").value;
+                if(isNaN(temp)){
+                    alert("vous n'avez pas entrer un nombre");
+                }
+                else{
+                     f=(temp*9/5)+32;
+                }
+                document.getElementById("lab");
+                lab.textContent="le resultat est: "+f+"F";
+                });
+                const conv2=document.getElementById("conv2");
+                conv2.addEventListener("click",function(){
+                    const temp=document.getElementById("temp").value;
+                    if(isNaN(temp)){
+                        alert("vous n'avez pas saisie de nombre");
+                    }
+                    else{
+                        C=(temp-32)*5/9;
+                    }
+                   const lab= document.getElementById("lab");
+                    lab.textContent="le resultat est: "+C+"C";
+                });
+        </script>
+    </body>
+</html>

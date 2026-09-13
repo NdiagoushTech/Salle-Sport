@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Ndiagoush_tech</title>
+        <link rel="stylesheet" href="css.css">
+    </head>
+    <body>
+        <header>
+            <h1>Ndiagoush_tech</h1>
+        </header>
+        <main>
+            <section>
+                <img src="moi.jpg" class="photo1">
+            </section>
+            <section>
+                <h2>Biographie</h2>
+                <p>Etudiant en informatique.<br>Passione par la technologie,le developpement et l'innovation,toujours en quete de nouvelles competences.</p>
+                <input type="button" value="Mode sombre" id="sombre">
+                <input type="button" value="Mode clair" id="clair">
+            </section>
+        </main>
+        <footer>
+            <a href="mailto:Pnc236@gmail.com" class="mail">
+                <img src="images.png">
+            </a>
+            <a href="https://www.tiktok.com/Ndiaga" class="tiktok">
+                <img src="téléchargement.png">
+            </a>
+            <p>&copy; Ndiagoush_tech -Touts droits reserves</p>
+        </footer>
+        <script>
+            const sombre=document.getElementById("sombre");
+            sombre.addEventListener("click",function(){
+                document.body.style.backgroundColor="#121212";
+                document.body.style.color="white";
+            });
+            const clair=document.getElementById("clair");
+            clair.addEventListener("click",function(){
+                document.body.style.backgroundColor="white";
+                document.body.style.color="black";
+            });
+        </script>
+    </body>
+</html>

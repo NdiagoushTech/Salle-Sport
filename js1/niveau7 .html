@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Formulaire</h1>
+
+        </header>
+        <main id="main">
+
+        </main>
+        <script>
+            const main=document.getElementById("main");
+            const form=document.createElement("form");
+            main.appendChild(form);
+            form.setAttribute("action","#");
+            form.setAttribute("method","post");
+            const fieldset=document.createElement("fieldset");
+            form.appendChild(fieldset);
+            const legend=document.createElement("legend");
+            fieldset.appendChild(legend);
+            legend.textContent="Informations personnelles";
+            const label=document.createElement("label");
+            fieldset.appendChild(label);
+            label.textContent="nom";
+            const input=document.createElement("input");
+            label.appendChild(input);
+            input.setAttribute("type","text");
+            input.setAttribute("name","nom");
+            input.setAttribute("placeholder","Cisse");
+            input.setAttribute("required","");
+            const br=document.createElement("br");
+            fieldset.appendChild(br);
+
+            const labelEmail=document.createElement("label");
+            fieldset.appendChild(labelEmail);
+            labelEmail.textContent="Email";
+            const inputEmail=document.createElement("input");
+            labelEmail.appendChild(inputEmail);
+            inputEmail.setAttribute("type","email")
+            inputEmail.setAttribute("name","email");
+            inputEmail.setAttribute("placeholder","pnc236@gmail.com");
+            inputEmail.style.textTransform="lowercase";
+            inputEmail.setAttribute("required","");
+            const brMail=document.createElement("br");
+            fieldset.appendChild(brMail);
+            const labelMdp=document.createElement("label");
+            fieldset.appendChild(labelMdp);
+            labelMdp.textContent="Mot de passe";
+            const inputMdp=document.createElement("input");
+            labelMdp.appendChild(inputMdp);
+            inputMdp.setAttribute("type","password");
+            inputMdp.setAttribute("name","password");
+            inputMdp.setAttribute("required","");
+            const brMdp=document.createElement("br");
+            fieldset.appendChild(brMdp);
+            const labelConf=document.createElement("label");
+            fieldset.appendChild(labelConf);
+            labelConf.textContent="Confirmation du Mot de passe";
+            const inputConf=document.createElement("input");
+            labelConf.appendChild(inputConf);
+            inputConf.setAttribute("type","password");
+            inputConf.setAttribute("name","password");
+            inputConf.setAttribute("required","");
+            const brConf=document.createElement("br");
+            fieldset.appendChild(brConf);
+            const brConf2=document.createElement("br");
+            fieldset.appendChild(brConf2);
+
+
+            const bouton=document.createElement("button");
+            fieldset.appendChild(bouton);
+            bouton.textContent="Envoyer";
+
+            form .addEventListener("submit",function(){
+
+                event.preventDefault();
+                const messages = form.querySelectorAll("p");
+                messages.forEach(function(supp) {
+                supp.remove();
+                    });
+                  let flag=false;
+                if(!(inputEmail.value.includes("@")&& inputEmail.value.includes("."))){
+                const p=document.createElement("p");
+                labelEmail.appendChild(p);
+                p.textContent="votre email doit avoir obligatoirement un '@'' et un '.' ";
+                flag=true;
+                }
+                if(inputMdp.value.length<8){
+                    const p=document.createElement("p");
+                    labelMdp.appendChild(p);
+                    p.textContent="votre mot de passe doit etre superieur a 8 caracteres";
+                    flag=true;
+                
+                }
+                if(!(inputMdp.value==inputConf.value)){
+                    const p=document.createElement("p");
+                    labelConf.appendChild(p);
+                    p.textContent="vos 2 mot de passes ne sont pas identiques";
+                    flag=true;
+                }
+                   if(flag==false){
+        const p=document.createElement("p");
+         fieldset.appendChild(p);
+        p.textContent="Felicitation! Vous avez rempli tout les champs";
+        }
+        });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Jeu du pendu</h1>
+        </header>
+        <main>
+            <input type="button" value="a" class="lettre">
+            <input type="button" value="z" class="lettre">
+            <input type="button" value="e" class="lettre">
+            <input type="button" value="r" class="lettre">
+            <input type="button" value="t" class="lettre">
+            <input type="button" value="y" class="lettre">
+            <input type="button" value="u" class="lettre">
+            <input type="button" value="i" class="lettre">
+            <input type="button" value="o" class="lettre">
+            <input type="button" value="p" class="lettre"><br>
+            <input type="button" value="q" class="lettre">
+            <input type="button" value="s" class="lettre">
+            <input type="button" value="d" class="lettre">
+            <input type="button" value="f" class="lettre">
+            <input type="button" value="g" class="lettre">
+            <input type="button" value="h" class="lettre">
+            <input type="button" value="j" class="lettre">
+            <input type="button" value="k" class="lettre">
+            <input type="button" value="l" class="lettre">
+            <input type="button" value="m" class="lettre"><br>
+            <input type="button" value="w" class="lettre">
+            <input type="button" value="x" class="lettre">
+            <input type="button" value="c" class="lettre">
+            <input type="button" value="v" class="lettre">
+            <input type="button" value="b" class="lettre">
+            <input type="button" value="n" class="lettre">
+            <input type="text" readonly id="tirets">
+            <p id="message"></p>
+            <input type="button" value="Rejouer" id="input">
+
+        </main>
+        <script>
+            let essai=10;
+            const p=document.getElementById("message");
+            p.textContent="";
+            
+            const tab=["algerie","bresil","canada","danemark","egypte","france"];
+            let choix=Math.floor(Math.random()*tab.length);
+            const tirets=document.getElementById("tirets");
+            tirets.value="_ ".repeat(tab[choix].length);
+            tirets.style.fontSize="20px";
+            let affichage=Array(tab[choix].length).fill("_");
+            const lettre=document.querySelectorAll(".lettre");
+            lettre.forEach(function(bouton){
+                bouton.style.fontSize="20px";
+                bouton.addEventListener("click",function(){
+                    bouton.disabled=true;
+                    if(tab[choix].includes(bouton.value)){
+                        for(let i=0;i<tab[choix].length;i++){
+                            if(tab[choix][i]==bouton.value){
+                                affichage[i]=bouton.value;
+                    }
+                }
+                 if(!(affichage.includes("_"))){
+                        p.textContent="Felicitations vous avez trouvez le mot";
+                }
+                 tirets.value=affichage.join(" ");
+            }
+            else{
+                essai--;
+                p.textContent="Il vous reste "+essai+" essai";
+                    if(essai<=0){
+                        p.textContent="Le nombre d'essai est epuiser.Le mot est "+tab[choix];
+                    }
+                }
+
+            });
+
+        });
+          const input= document.getElementById("input");
+          input.addEventListener("click",function(){
+            essai=10;
+            p.textContent="";
+            lettre.forEach(function(bouton){
+                bouton.disabled=false;
+            });
+            choix=Math.floor(Math.random()*tab.length);
+            affichage=Array(tab[choix].length).fill("_");
+            tirets.value="_ ".repeat(tab[choix].length);
+          });
+        </script>
+    </body>
+</html>

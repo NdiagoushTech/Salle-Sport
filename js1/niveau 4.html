@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Ndiagoush_tech</title>
+    </head>
+    <body>
+        <header>
+            <h1>Liste de taches</h1>
+        </header>
+        <main>
+            Entrer une tache:<input type="text" id="saisie">
+            <input type="button" value="Ajouter" id="ajouter">
+            <input type="button" value="valider" id="valider">
+            <input type="button" value="effacer" id="effacer">
+            <ul class="ul"></ul>
+            <p id="p"></p>
+            <script>
+                const saisie=document.getElementById("saisie");
+                const ajouter=document.getElementById("ajouter");
+                let cpt=0;
+                const p=document.getElementById("p");
+                const ul=document.querySelector("ul");
+                ajouter.addEventListener("click",function(){
+                    if(saisie.value==""){
+                    alert("la tache saisie est invalide");
+                }
+                else{
+                    const li=document.createElement("li");
+                    li.textContent=saisie.value;
+                    cpt++;
+                    const p=document.getElementById("p");
+                    const ul=document.querySelector("ul");
+                    ul.appendChild(li);
+                    const input=document.createElement("input");
+                    input.setAttribute("type","checkbox");
+                    input.addEventListener("click",function(){
+                        li.style.textDecoration="line-through";
+                        cpt--;
+                        p.textContent="il vous reste"+cpt+"taches";
+                    });
+                    li.appendChild(input);
+                    const supp=document.createElement("input");
+                    supp.setAttribute("type","button");
+                    supp.setAttribute("value","supprimer");
+                    li.appendChild(supp);
+                    supp.addEventListener("click",function(){
+                        li.remove();
+                        cpt--;
+                       p.textContent="il vous reste"+cpt+"taches";
+                    });
+                }
+                });
+                 const effacer=document.getElementById("effacer");
+                    effacer.addEventListener("click",function(){
+                    ul.innerHTML="";
+                    cpt=0;
+                    p.textContent="";
+                   });
+            </script>
+        </main>
+    </body>
+</html>
