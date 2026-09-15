@@ -1,42 +1,146 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta charset="utf-8">
-        <title>Ndiagoush_tech</title>
-        <link rel="stylesheet" href="gym.css">
-    </head>
-    <body>
-        <header>
-            <h1>Ndiagoush_sport</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Programmes</a></li>
-                    <li id="inscrire"><a href="#">Coachs</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="presentation">
-            <h2>presentation</h2>
-            <p>Bienvenue dans notre salle de sport,un espace dedie a votre bien-etre et a l'atteinte de vos objectifs.<br>Que vous Souhaitiez perdre du poids,gagner musculaire,ameliorer votre condition physique  ou simplement rester actif,nous mettons a votre dispoosition des equipements modernes et un accompagnement adapte.<br>Dans une ambiance conviviale et motivante,notre equipe vous aide a donner le meilleur de vous meme jour apres jour.</p>
-        </section>
-        <section class="gym">
-    <img src="Gym.jpg" alt="Intérieur de la salle de sport moderne">
-    <img src="description (2).jpg" alt="Coaching et entraînement à la salle de sport">
-    
-    <h3>Description</h3>
-    <p>Une salle de sport moderne et spacieuse avec des équipements de musculation et de cardio bien disposés...</p>
-    
-    <a href="#inscrire">S'inscrire</a>
-    
-    <audio controls="controls">
-        <source src="audio_test.mp3">
-    </audio>
-</section>
-        <footer>
-            <p>&copy; Ndiagoush_sport - Tous droits reserves</p>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ndiagoush Sport — Salle de Sport & Coaching</title>
+    <!-- Font Google Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gym.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="logo">
+            <span>Ndiagoush</span>_sport
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#presentation">À Propos</a></li>
+                <li><a href="#programmes">Programmes</a></li>
+                <li><a href="#galerie-media">Entraînements</a></li>
+                <li><a href="#inscription" class="btn-nav">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>DÉPASSEZ VOS LIMITES</h1>
+            <p>Transformez votre corps et votre esprit avec un accompagnement sur-mesure et des équipements de dernière génération.</p>
+            <div class="hero-buttons">
+                <a href="#inscription" class="btn btn-primary">Rejoindre le Club</a>
+                <a href="#presentation" class="btn btn-secondary">Découvrir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Présentation -->
+    <section id="presentation" class="container presentation">
+        <div class="section-title">
+            <h2>Présentation de la Salle</h2>
+            <div class="line"></div>
+        </div>
+        <div class="presentation-grid">
+            <div class="presentation-text">
+                <p>Bienvenue chez <strong>Ndiagoush Sport</strong>, un espace dédié à votre bien-être et au dépassement de soi.</p>
+                <p>Que votre objectif soit de perdre du poids, d'augmenter votre masse musculaire, d'améliorer vos performances athlétiques ou simplement de maintenir une excellente hygiène de vie, nous mettons à votre disposition un environnement stimulant et du matériel de pointe.</p>
+                <p>Dans une ambiance conviviale et motivante, nos coachs certifiés vous accompagnent pas à pas pour maximiser vos résultats, jour après jour.</p>
+            </div>
+            <div class="presentation-images">
+                <img src="Gym.jpg" alt="Intérieur de la salle de sport moderne">
+                <img src="description (2).jpg" alt="Coaching et entraînement à la salle de sport">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Programmes & Atouts -->
+    <section id="programmes" class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Prestations</h2>
+                <div class="line"></div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Musculation & Cardio</h3>
+                    <p>Un espace complet équipé de machines modernes pour travailler chaque groupe musculaire et brûler des calories.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Coaching Personnalisé</h3>
+                    <p>Des programmes d'entraînement personnalisés conçus par des professionnels en fonction de vos objectifs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cours Collectifs</h3>
+                    <p>Participez à des séances de groupe dynamiques (HIIT, Fitness, Stretches) pour rester motivé en équipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Média (Vidéos & Audio) -->
+    <section id="galerie-media" class="container media-section">
+        <div class="section-title">
+            <h2>Espace Entraînements & Ambiance</h2>
+            <p class="subtitle">Découvrez nos séances en vidéo et nos conseils audio</p>
+            <div class="line"></div>
+        </div>
+
+        <!-- Audio Podcast / Motivation -->
+        <div class="audio-card">
+            <h3>🎧 Écouter nos conseils motivationnels</h3>
+            <audio controls>
+                <source src="audio_test.mp3" type="audio/mpeg">
+                Votre navigateur ne supporte pas la lecture audio.
+            </audio>
+        </div>
+
+        <!-- Galerie de Vidéos -->
+        <h3 class="subsection-title">Vidéos de la Salle</h3>
+        <div class="video-grid">
+            <div class="video-card"><video controls preload="metadata"><source src="Video1.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video2.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video3.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video4.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video5.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video6.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video7.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video8.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video9.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video10.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video11.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video12.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video13.mp4" type="video/mp4"></video></div>
+            <div class="video-card"><video controls preload="metadata"><source src="Video14.mp4" type="video/mp4"></video></div>
+        </div>
+
+        <!-- Galerie de Photos -->
+        <h3 class="subsection-title">Photos de la communauté</h3>
+        <div class="photo-grid">
+            <img src="PhotoG1.jpeg" alt="Athlète à l'entraînement Ndiagoush Sport">
+            <img src="PhotoG2.jpeg" alt="Session de coaching intense">
+        </div>
+    </section>
+
+    <!-- Section Inscription / CTA -->
+    <section id="inscription" class="cta-section">
+        <div class="container">
+            <h2>Prêt à commencer votre transformation ?</h2>
+            <p>Rejoignez la communauté Ndiagoush Sport dès aujourd'hui et profitez d'une première séance d'évaluation gratuite.</p>
+            <a href="#" class="btn btn-primary btn-large">Inscrivez-vous maintenant</a>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <p class="logo-footer">Ndiagoush_sport</p>
+            <p>&copy; 2026 Ndiagoush_sport. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
